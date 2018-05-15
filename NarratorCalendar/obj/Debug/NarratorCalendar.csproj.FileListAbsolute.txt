@@ -1,0 +1,11 @@
+c:\users\tuan\documents\visual studio 2013\Projects\NarratorCalendar\NarratorCalendar\bin\Debug\NarratorCalendar.exe.config
+C:\Users\Tuan\Documents\Visual Studio 2013\Projects\NarratorCalendar\NarratorCalendar\bin\Debug\NarratorCalendar.exe
+C:\Users\Tuan\Documents\Visual Studio 2013\Projects\NarratorCalendar\NarratorCalendar\bin\Debug\NarratorCalendar.pdb
+C:\Users\Tuan\Documents\Visual Studio 2013\Projects\NarratorCalendar\NarratorCalendar\obj\Debug\NarratorCalendar.csprojResolveAssemblyReference.cache
+C:\Users\Tuan\Documents\Visual Studio 2013\Projects\NarratorCalendar\NarratorCalendar\obj\Debug\NarratorCalendar.AJob.resources
+C:\Users\Tuan\Documents\Visual Studio 2013\Projects\NarratorCalendar\NarratorCalendar\obj\Debug\NarratorCalendar.DayDetails.resources
+C:\Users\Tuan\Documents\Visual Studio 2013\Projects\NarratorCalendar\NarratorCalendar\obj\Debug\NarratorCalendar.Form1.resources
+C:\Users\Tuan\Documents\Visual Studio 2013\Projects\NarratorCalendar\NarratorCalendar\obj\Debug\NarratorCalendar.Properties.Resources.resources
+C:\Users\Tuan\Documents\Visual Studio 2013\Projects\NarratorCalendar\NarratorCalendar\obj\Debug\NarratorCalendar.csproj.GenerateResource.Cache
+C:\Users\Tuan\Documents\Visual Studio 2013\Projects\NarratorCalendar\NarratorCalendar\obj\Debug\NarratorCalendar.exe
+C:\Users\Tuan\Documents\Visual Studio 2013\Projects\NarratorCalendar\NarratorCalendar\obj\Debug\NarratorCalendar.pdb
