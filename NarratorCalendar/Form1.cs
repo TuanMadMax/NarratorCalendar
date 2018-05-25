@@ -16,6 +16,16 @@ namespace NarratorCalendar
     {
 
         #region Properties Matix
+        
+
+        private int appTime;
+
+        public int AppTime
+        {
+            get { return appTime; }
+            set { appTime = value; }
+        }
+
         private string filePath = "data.xml";
 
         private List<List<Button>> matrix;
@@ -38,10 +48,14 @@ namespace NarratorCalendar
         public Form1()
         {
             InitializeComponent();
+            tmNotify.Start();
+
+            appTime = 0;
+
             LoadMatrix();
             try
             {
-                DeserializeFromXML(filePath);
+                Job = DeserializeFromXML(filePath) as PlanData; // de hien thi job torng ngay duoc chon
             }
             catch {
                 setDefaultJob();
@@ -55,11 +69,11 @@ namespace NarratorCalendar
             {
                 Date = DateTime.Now,
                 FromTime = new Point(4, 0),
-                ToTime = new Point(5, 0),
+                ToTime = new Point(7, 0),
                 Job = "A demo job",
                 Status = PlanItem.ListStatus[(int)EPlanItem.COMING]
             });
-            
+           
         }
 
         void LoadMatrix()
@@ -73,6 +87,9 @@ namespace NarratorCalendar
                 {
                     Button btn = new Button(){Width =Cons.dateButtonWidth , Height = Cons.dateButtonHeight};
                     btn.Location = new Point(OldBtn.Location.X + OldBtn.Width + Cons.margin, OldBtn.Location.Y);
+                    btn.Click+=btn_Click;
+
+
                     pnlMatrix.Controls.Add(btn);
                     //add danh sach button
                     Matrix[i].Add(btn);
@@ -83,6 +100,15 @@ namespace NarratorCalendar
             }
             SetDefaultDate();
             
+        }
+
+        private void btn_Click(object sender, EventArgs e)
+        {
+            if(string.IsNullOrEmpty((sender as Button).Text)){
+                return;
+            }
+            DayDetails detail = new DayDetails(new DateTime(dtpkDate.Value.Year, dtpkDate.Value.Month,Convert.ToInt32((sender as Button).Text)), Job); //(truyền vào ngày được chọn)
+            detail.ShowDialog();
         }
 
         //tự tạo hàm các ngày của tháng
@@ -222,8 +248,9 @@ namespace NarratorCalendar
 
         //khi chuong tring dong
         private void SerializeToXML(object data, string filePath){
+
             FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.Write); 
-            XmlSerializer sr = new XmlSerializer(typeof(PlanData));
+            XmlSerializer sr = new XmlSerializer(typeof(PlanData)); // lấy dữ liệu filePath lên thanh PlanData
 
 
             sr.Serialize(fs, data); //luu du lieu
@@ -241,8 +268,10 @@ namespace NarratorCalendar
 
                 object result = sr.Deserialize(fs);
                 fs.Close();
-                return result;
-            }catch(Exception e){
+                return result; 
+            }
+            catch(Exception e)
+            {
                 fs.Close();
                 throw new NotImplementedException();
             }
@@ -251,6 +280,35 @@ namespace NarratorCalendar
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             SerializeToXML(Job, filePath);
+        }
+
+        private void tmNotify_Tick(object sender, EventArgs e)
+        {
+            if(!ckbNotify.Checked){
+                return;
+            }
+            AppTime++;
+            if(AppTime < Cons.notifyTime){
+                return;
+            }
+            if(Job == null || Job.Job == null){
+                return;
+            }
+            DateTime currentDate =  DateTime.Now;
+            List<PlanItem> todayjobs = Job.Job.Where(p=>p.Date.Year == currentDate.Year && p.Date.Month == currentDate.Month && p.Date.Day == currentDate.Day).ToList(); // đi hết danh sách tìm nao thõa dk
+            Notify.ShowBalloonTip(Cons.notifyTimeOut, "Lịch công việc",string.Format("Bạn có {0} sự kiện trong ngày hôm nay", todayjobs.Count), ToolTipIcon.Info);
+
+            AppTime = 0;// nếu bằng time đó thì reset
+        }
+
+        private void nmNotify_ValueChanged(object sender, EventArgs e)
+        {
+            Cons.notifyTime = (int)nmNotify.Value;
+        }
+
+        private void ckbNotify_CheckedChanged(object sender, EventArgs e)
+        {
+            nmNotify.Enabled = ckbNotify.Checked;
         }
     }
 }

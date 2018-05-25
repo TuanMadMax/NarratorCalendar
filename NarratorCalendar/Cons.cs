@@ -17,6 +17,9 @@ namespace NarratorCalendar
 
         // moi ngay trong tuan cach nhau margin
         public static int margin = 1;
+        // time to notify
+        public static int notifyTime = 1;
+        public static int notifyTimeOut = 10000;
 
     }
 }

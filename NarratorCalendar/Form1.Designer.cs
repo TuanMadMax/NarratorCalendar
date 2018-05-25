@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -47,6 +49,8 @@
             this.btnWednesday = new System.Windows.Forms.Button();
             this.btnTuesday = new System.Windows.Forms.Button();
             this.btnMonday = new System.Windows.Forms.Button();
+            this.tmNotify = new System.Windows.Forms.Timer(this.components);
+            this.Notify = new System.Windows.Forms.NotifyIcon(this.components);
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -85,6 +89,7 @@
             // 
             // nmNotify
             // 
+            this.nmNotify.Enabled = false;
             this.nmNotify.Location = new System.Drawing.Point(88, 2);
             this.nmNotify.Maximum = new decimal(new int[] {
             3600,
@@ -104,6 +109,7 @@
             0,
             0,
             0});
+            this.nmNotify.ValueChanged += new System.EventHandler(this.nmNotify_ValueChanged);
             // 
             // ckbNotify
             // 
@@ -114,6 +120,7 @@
             this.ckbNotify.TabIndex = 0;
             this.ckbNotify.Text = "Thông báo";
             this.ckbNotify.UseVisualStyleBackColor = true;
+            this.ckbNotify.CheckedChanged += new System.EventHandler(this.ckbNotify_CheckedChanged);
             // 
             // btnToday
             // 
@@ -253,13 +260,27 @@
             this.btnMonday.Text = "Thứ 2";
             this.btnMonday.UseVisualStyleBackColor = true;
             // 
+            // tmNotify
+            // 
+            this.tmNotify.Enabled = true;
+            this.tmNotify.Interval = 60000;
+            this.tmNotify.Tick += new System.EventHandler(this.tmNotify_Tick);
+            // 
+            // Notify
+            // 
+            this.Notify.Icon = ((System.Drawing.Icon)(resources.GetObject("Notify.Icon")));
+            this.Notify.Text = "Thông báo";
+            this.Notify.Visible = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(742, 393);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Narrator Calendar";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -295,6 +316,8 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.NumericUpDown nmNotify;
         private System.Windows.Forms.CheckBox ckbNotify;
+        private System.Windows.Forms.Timer tmNotify;
+        private System.Windows.Forms.NotifyIcon Notify;
     }
 }
 

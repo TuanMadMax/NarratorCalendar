@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pnlEvent = new System.Windows.Forms.Panel();
-            this.dtpkDate = new System.Windows.Forms.DateTimePicker();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnPreviousday = new System.Windows.Forms.Button();
+            this.btnNextday = new System.Windows.Forms.Button();
+            this.dtpkDate = new System.Windows.Forms.DateTimePicker();
+            this.pnlEvent = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mnsNote = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnNextday = new System.Windows.Forms.Button();
-            this.btnPreviousday = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -48,22 +48,8 @@
             this.panel1.Controls.Add(this.pnlEvent);
             this.panel1.Location = new System.Drawing.Point(12, 25);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(677, 347);
+            this.panel1.Size = new System.Drawing.Size(736, 347);
             this.panel1.TabIndex = 0;
-            // 
-            // pnlEvent
-            // 
-            this.pnlEvent.Location = new System.Drawing.Point(3, 36);
-            this.pnlEvent.Name = "pnlEvent";
-            this.pnlEvent.Size = new System.Drawing.Size(671, 308);
-            this.pnlEvent.TabIndex = 0;
-            // 
-            // dtpkDate
-            // 
-            this.dtpkDate.Location = new System.Drawing.Point(223, 4);
-            this.dtpkDate.Name = "dtpkDate";
-            this.dtpkDate.Size = new System.Drawing.Size(209, 20);
-            this.dtpkDate.TabIndex = 1;
             // 
             // panel3
             // 
@@ -72,41 +58,8 @@
             this.panel3.Controls.Add(this.dtpkDate);
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(671, 27);
+            this.panel3.Size = new System.Drawing.Size(730, 27);
             this.panel3.TabIndex = 1;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnsNote,
-            this.mnsItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(701, 24);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // mnsNote
-            // 
-            this.mnsNote.Name = "mnsNote";
-            this.mnsNote.Size = new System.Drawing.Size(60, 20);
-            this.mnsNote.Text = "Ghi chú";
-            // 
-            // mnsItem
-            // 
-            this.mnsItem.Name = "mnsItem";
-            this.mnsItem.Size = new System.Drawing.Size(68, 20);
-            this.mnsItem.Text = "Hôm nay";
-            // 
-            // btnNextday
-            // 
-            this.btnNextday.AutoSize = true;
-            this.btnNextday.Location = new System.Drawing.Point(607, 2);
-            this.btnNextday.Name = "btnNextday";
-            this.btnNextday.Size = new System.Drawing.Size(61, 23);
-            this.btnNextday.TabIndex = 2;
-            this.btnNextday.Text = "Ngày mai";
-            this.btnNextday.UseVisualStyleBackColor = true;
             // 
             // btnPreviousday
             // 
@@ -117,17 +70,71 @@
             this.btnPreviousday.TabIndex = 3;
             this.btnPreviousday.Text = "Hôm qua";
             this.btnPreviousday.UseVisualStyleBackColor = true;
+            this.btnPreviousday.Click += new System.EventHandler(this.btnPreviousday_Click);
+            // 
+            // btnNextday
+            // 
+            this.btnNextday.AutoSize = true;
+            this.btnNextday.Location = new System.Drawing.Point(666, 1);
+            this.btnNextday.Name = "btnNextday";
+            this.btnNextday.Size = new System.Drawing.Size(61, 23);
+            this.btnNextday.TabIndex = 2;
+            this.btnNextday.Text = "Ngày mai";
+            this.btnNextday.UseVisualStyleBackColor = true;
+            this.btnNextday.Click += new System.EventHandler(this.btnNextday_Click);
+            // 
+            // dtpkDate
+            // 
+            this.dtpkDate.Location = new System.Drawing.Point(223, 4);
+            this.dtpkDate.Name = "dtpkDate";
+            this.dtpkDate.Size = new System.Drawing.Size(209, 20);
+            this.dtpkDate.TabIndex = 1;
+            this.dtpkDate.ValueChanged += new System.EventHandler(this.dtpkDate_ValueChanged);
+            // 
+            // pnlEvent
+            // 
+            this.pnlEvent.Location = new System.Drawing.Point(3, 36);
+            this.pnlEvent.Name = "pnlEvent";
+            this.pnlEvent.Size = new System.Drawing.Size(727, 308);
+            this.pnlEvent.TabIndex = 0;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnsNote,
+            this.mnsItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(760, 24);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // mnsNote
+            // 
+            this.mnsNote.Name = "mnsNote";
+            this.mnsNote.Size = new System.Drawing.Size(74, 20);
+            this.mnsNote.Text = "Thêm việc";
+            this.mnsNote.Click += new System.EventHandler(this.mnsNote_Click);
+            // 
+            // mnsItem
+            // 
+            this.mnsItem.Name = "mnsItem";
+            this.mnsItem.Size = new System.Drawing.Size(68, 20);
+            this.mnsItem.Text = "Hôm nay";
+            this.mnsItem.Click += new System.EventHandler(this.mnsItem_Click);
             // 
             // DayDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(701, 384);
+            this.ClientSize = new System.Drawing.Size(760, 384);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "DayDetails";
-            this.Text = "Chi tiết hôm nay";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Chi tiết";
+            this.Load += new System.EventHandler(this.DayDetails_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
