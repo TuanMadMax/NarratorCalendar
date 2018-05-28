@@ -294,10 +294,10 @@ namespace NarratorCalendar
             if(Job == null || Job.Job == null){
                 return;
             }
-            DateTime currentDate = DateTime.Now;
+            DateTime currentDate =  DateTime.Now;
             List<PlanItem> todayjobs = Job.Job.Where(p=>p.Date.Year == currentDate.Year && p.Date.Month == currentDate.Month && p.Date.Day == currentDate.Day).ToList(); // đi hết danh sách tìm nao thõa dk
             Notify.ShowBalloonTip(Cons.notifyTimeOut, "Lịch công việc",string.Format("Bạn có {0} sự kiện trong ngày hôm nay", todayjobs.Count), ToolTipIcon.Info);
-           
+
             AppTime = 0;// nếu bằng time đó thì reset
         }
 
@@ -309,11 +309,6 @@ namespace NarratorCalendar
         private void ckbNotify_CheckedChanged(object sender, EventArgs e)
         {
             nmNotify.Enabled = ckbNotify.Checked;
-        }
-
-        private void Notify_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-
         }
     }
 }

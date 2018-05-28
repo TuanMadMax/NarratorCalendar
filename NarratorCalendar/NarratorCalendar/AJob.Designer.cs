@@ -104,11 +104,6 @@
             // nmToMinute
             // 
             this.nmToMinute.Location = new System.Drawing.Point(199, 2);
-            this.nmToMinute.Maximum = new decimal(new int[] {
-            59,
-            0,
-            0,
-            0});
             this.nmToMinute.Name = "nmToMinute";
             this.nmToMinute.Size = new System.Drawing.Size(51, 20);
             this.nmToMinute.TabIndex = 4;
@@ -117,11 +112,6 @@
             // nmToHours
             // 
             this.nmToHours.Location = new System.Drawing.Point(145, 3);
-            this.nmToHours.Maximum = new decimal(new int[] {
-            24,
-            0,
-            0,
-            0});
             this.nmToHours.Name = "nmToHours";
             this.nmToHours.Size = new System.Drawing.Size(48, 20);
             this.nmToHours.TabIndex = 3;
@@ -138,11 +128,6 @@
             // nmFromMinute
             // 
             this.nmFromMinute.Location = new System.Drawing.Point(57, 2);
-            this.nmFromMinute.Maximum = new decimal(new int[] {
-            59,
-            0,
-            0,
-            0});
             this.nmFromMinute.Name = "nmFromMinute";
             this.nmFromMinute.Size = new System.Drawing.Size(51, 20);
             this.nmFromMinute.TabIndex = 1;
@@ -150,11 +135,6 @@
             // nmFromHours
             // 
             this.nmFromHours.Location = new System.Drawing.Point(3, 3);
-            this.nmFromHours.Maximum = new decimal(new int[] {
-            24,
-            0,
-            0,
-            0});
             this.nmFromHours.Name = "nmFromHours";
             this.nmFromHours.Size = new System.Drawing.Size(48, 20);
             this.nmFromHours.TabIndex = 0;

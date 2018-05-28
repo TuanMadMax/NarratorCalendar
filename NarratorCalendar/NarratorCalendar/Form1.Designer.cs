@@ -270,7 +270,7 @@
             // 
             this.Notify.Icon = ((System.Drawing.Icon)(resources.GetObject("Notify.Icon")));
             this.Notify.Text = "Thông báo";
-            this.Notify.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Notify_MouseDoubleClick);
+            this.Notify.Visible = true;
             // 
             // Form1
             // 
