@@ -263,22 +263,15 @@
             // tmNotify
             // 
             this.tmNotify.Enabled = true;
-<<<<<<< HEAD
             this.tmNotify.Interval = 5000;
-=======
-            this.tmNotify.Interval = 60000;
->>>>>>> 467d3d6dd0601a388cf86acef659308b8b9d1b7b
             this.tmNotify.Tick += new System.EventHandler(this.tmNotify_Tick);
             // 
             // Notify
             // 
             this.Notify.Icon = ((System.Drawing.Icon)(resources.GetObject("Notify.Icon")));
             this.Notify.Text = "Thông báo";
-<<<<<<< HEAD
-            this.Notify.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Notify_MouseDoubleClick);
-=======
             this.Notify.Visible = true;
->>>>>>> 467d3d6dd0601a388cf86acef659308b8b9d1b7b
+            this.Notify.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Notify_MouseDoubleClick);
             // 
             // Form1
             // 
